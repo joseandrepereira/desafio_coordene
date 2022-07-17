@@ -30,11 +30,11 @@ export default {
   },
   data() {
     const appName = "";
-    const shippingData = null;
+    const shippingData = [];
 
     return {
       appName,
-      shippingData,
+      shippingData
     };
   },
   created() {
@@ -44,16 +44,25 @@ export default {
   },
   methods: {
     // Implemente aqui os metodos utilizados na pagina
-    methodFoo() {
-      console.log(this.appName);
+
+    //Método para filtrar as repetições das cidades
+    transfer(data){
+      let count = 0;
+      for (let index = 0; index < data.length; index++) {
+        if(!this.shippingData.includes(data[index].city)){ 
+               this.shippingData[count] = data[index].city;
+               count ++;
+        }   
+      }
+      this.shippingData.sort();
     },
     async getDatas(){
       const req = await fetch("http://localhost:3000/transport");
       const data = await req.json();
 
-      this.shippingData = data;
+      this.transfer(data);
 
-      // console.log(this.shippingData);
+       console.log(this.shippingData);
     }
   },
   mounted(){

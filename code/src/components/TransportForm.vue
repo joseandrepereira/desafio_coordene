@@ -4,10 +4,10 @@
     <div>
       <form id="transport-form">
         <div class="input-container">
-          <label for="destino">Destino</label>
-          <select name="destino" id="destino" v-model="destino">
+          <label for="destiny">Destino</label>
+          <select name="destiny" id="destiny" v-model="destiny">
             <option value="">Selecione aqui o destino do frete</option>
-            <option  value="">Selecione aqui o destino do frete</option>
+            <option v-for="(destiny, index) in shippingData" :key="destiny[index]" value="">{{destiny}}</option>
           </select>
         </div>
         <div class="input-container">
@@ -28,12 +28,17 @@ export default {
   props: ['shippingData'],
   data(){
     return {
+        peso: null,
+        destiny: null,
         destinations: [],
     }
   },
   mounted(){
   //  this.destinations = this.shippingData;
    // console.log(this.shippingData);
+  },
+  methods:{
+    
   }
 };
 </script>
