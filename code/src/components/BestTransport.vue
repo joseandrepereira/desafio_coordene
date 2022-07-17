@@ -10,7 +10,8 @@
     </div>
 
     <div class="body">
-      <TransportForm :shippingData="shippingData" />
+      <TransportForm :shippingData="shippingData" v-on:formSubmit="formSubmit"/>
+      <p>PESO:{{weight}} /  DESTINO:{{destiny}}</p>
       <p>\\\\\\\\\\ RESULTADOS ////////////</p>
     </div>
   </div>
@@ -34,7 +35,9 @@ export default {
 
     return {
       appName,
-      shippingData
+      shippingData,
+      weight: null,
+      destiny: null,
     };
   },
   created() {
@@ -56,13 +59,17 @@ export default {
       }
       this.shippingData.sort();
     },
+    //Método para dar o GET na API
     async getDatas(){
       const req = await fetch("http://localhost:3000/transport");
       const data = await req.json();
 
       this.transfer(data);
-
-       console.log(this.shippingData);
+    },
+    //Método que recebe os dados do form por meio do @emit
+    formSubmit(data){
+      this.weight = data.data.weight;
+      this.destiny = data.data.destiny;
     }
   },
   mounted(){
@@ -79,10 +86,7 @@ export default {
 }
 
 .title .navbar-brand {
-  background-color: rgba(0, 0, 0, 0.519);
-
   margin-left: 20px;
-
   display: flex;
   justify-content: flex-start;
   align-items: center;

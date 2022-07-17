@@ -2,17 +2,17 @@
   <div>
     <p><strong>Como é o frete que você precisa?</strong></p>
     <div>
-      <form id="transport-form">
+      <form id="transport-form" @submit="getInputs">
         <div class="input-container">
           <label for="destiny">Destino</label>
           <select name="destiny" id="destiny" v-model="destiny">
             <option value="">Selecione aqui o destino do frete</option>
-            <option v-for="(destiny, index) in shippingData" :key="destiny[index]" value="">{{destiny}}</option>
+            <option v-for="(destiny, index) in shippingData" :key="destiny[index]" :value="destiny">{{destiny}}</option>
           </select>
         </div>
         <div class="input-container">
-          <label for="peso">Peso</label>
-          <input type="text" id="peso" name="name" v-model="peso" placeholder="Insira aqui o peso da carga em Kg" />
+          <label for="weight">Peso</label>
+          <input type="text" id="weight" name="name" v-model="weight" placeholder="Insira aqui o peso da carga em Kg" />
         </div>
         <div class="input-container">
             <input type="submit" class="submit-btn" value="Analisar">
@@ -26,11 +26,13 @@
 export default {
   name: "TransportForm",
   props: ['shippingData'],
+  emits: ['formSubmit'],
   data(){
     return {
-        peso: null,
+        weight: null,
         destiny: null,
         destinations: [],
+
     }
   },
   mounted(){
@@ -38,7 +40,33 @@ export default {
    // console.log(this.shippingData);
   },
   methods:{
-    
+    async getInputs(e){
+        e.preventDefault();
+
+        const data = {
+            weight: this.weight,
+            destiny: this.destiny
+        }
+        this.$emit('formSubmit', {data});
+
+        //apagar os dados dos inputs 
+        /*
+        *
+        *
+        * *
+        * *
+        * *
+        * *
+        * *
+        * *
+        * *
+        * 
+        * *
+        * *
+        * *
+        * *
+        *  */
+    }
   }
 };
 </script>
