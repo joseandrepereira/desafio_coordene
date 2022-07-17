@@ -7,12 +7,11 @@
       >
     </p>
     <div class="result" id="resultCheap">
-      <p v-show="resultCheap.name"> Frete mais barato: <strong>Transportadora {{ cName }} - R$ {{ cCost }} - {{ cTime }}h</strong>
+      <p v-show="resultCheap.name"> <img src="../assets/de-dinheiro.png" alt="cronometro" height="40" width="40"> Frete mais barato: <strong>Transportadora {{ cName }} - R$ {{ cCost }} - {{ cTime }}h</strong>
       </p>
     </div>
     <div class="result" id="resultFast">
-      <p v-show="resultCheap.name">
-        Frete mais rápido:
+      <p v-show="resultCheap.name"> <img src="../assets/cronometro.png" alt="cronometro" height="43" width="43"> Frete mais rápido:
         <strong>
           Transportador {{ fName }} - R$ {{ fCost }} - {{ fTime }}h</strong>
       </p>
@@ -62,9 +61,9 @@ export default {
     //Método para calcular o valor do frete
     calculateValue(weight, costLight, costHeavy) {
       if (weight > 100) {
-        return weight * costHeavy;
+        return (weight * costHeavy).toFixed(2);
       } else {
-        return weight * costLight;
+        return (weight * costLight).toFixed(2);
       }
     },
   },
@@ -79,18 +78,32 @@ export default {
 
 <style  scoped>
 #title {
-  padding: 0 10px;
+  padding: 0px 10px;
   border-bottom: 2px solid #000;
   width: 400px;
+  font-size:medium;
+  text-justify: auto;
 }
 
 .result{
+    height: 50px;
     display: flex;
-    text-align: center;
-    justify-content: center;
-    border: 2px dashed #93c47d;
+    text-align:start;;
+    justify-content: start;
+    border: 2px dashed;
     border-radius: 10px;
-    padding: 3px;
+    padding: 0px 10px;
     margin-bottom: 10px;
+    font-size: small;
+}
+
+#resultCheap{
+    background-color: #D9EAD3;
+    border-color: #93c47d;
+}
+
+#resultFast{
+    background-color: #C9DAF8;
+    border-color: #1356CD;
 }
 </style>

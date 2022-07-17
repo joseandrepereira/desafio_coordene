@@ -59,22 +59,21 @@ export default {
 <style scoped>
 
     p {
-    padding: 0 10px;
-    border-bottom: 2px solid #000;
-    width: 300px;
+      padding: 10px 10px;
+      border-bottom: 2px solid #000;
+      width: 300px;
     }
 
     #transport-form {
-        max-width: 400px;
-        margin: 0 auto;
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     .input-container {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 20px;
-        padding: 0 20px;
-
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      padding: 0 20px;
     }
 
     .submit-btn {
@@ -101,6 +100,15 @@ export default {
     input, select {
         padding: 5px 10px;
         width: 350px;
+    }
+
+    input::placeholder{
+      color: #47535e;
+    }
+
+    #destiny, #weight{
+      background-color: #CFE2F3;
+      color: #37434e;
     }
 
 </style>

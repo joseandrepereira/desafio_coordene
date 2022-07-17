@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="allElements">
     <div class="title">
       <b-navbar toggleable="lg" type="dark" variant="info">
         <b-navbar-brand class="ml-2">
@@ -141,29 +141,33 @@ export default {
 </script>
 
 <style scoped>
-.title .navbar {
+.navbar {
   background-color: #93c47d !important;
   border-bottom: 2px solid #000;
-  padding: 15px 30px;
-}
-
-.title .navbar-brand {
-  margin-left: 20px;
+  border-left:2px solid #000;
+  border-right: 2px solid #000;
+  padding: 5px 30px;
+  width: 500px;
+  height: 100px;
+  margin-top: 0px;
+}.navbar-brand {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-
-.title .navbar-brand b {
+.navbar-brand b {
   margin-left: 15px;
   color: black;
   font-size: larger;
 }
 
-.body {
+#allElements{
+  width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: auto;
+  border: 2px solid #000;
 }
 </style>
