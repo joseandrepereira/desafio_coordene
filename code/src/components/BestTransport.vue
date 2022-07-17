@@ -14,8 +14,7 @@
         :shippingData="shippingData"
         v-on:formSubmit="formSubmit"
       />
-      <p>PESO:{{ weight }} / DESTINO:{{ destiny }}</p>
-      <TransportResult :resultCheap="cheapResultt" />
+      <TransportResult :resultCheap="cheapResultt" :resultFast="fastResultt" :weight="weight"/>
     </div>
   </div>
 </template>
@@ -41,6 +40,7 @@ export default {
     const destiny = null;
     const datas = [];
     const cheapResultt = null;
+    const fastResultt = null;
 
     return {
       appName,
@@ -48,13 +48,15 @@ export default {
       weight,
       destiny,
       datas,
-      cheapResultt
+      cheapResultt,
+      fastResultt
     };
   },
   created() {
     // Implemente aqui o GET dos dados da API REST
     // para que isso ocorra na inicialização da pagina
     this.appName = "MELHOR FRETE";
+    this.getDatas();
   },
   methods: {
     // Implemente aqui os metodos utilizados na pagina
@@ -96,6 +98,7 @@ export default {
       this.weight = data.data.weight;
       this.destiny = data.data.destiny;
 
+      this.fastResult();
       this.cheapResult(this.weight);
     },
     //Método para calcular o frete mais barato
@@ -119,9 +122,20 @@ export default {
       }
       this.cheapResultt = resultCheap;
     },
-  },
-  mounted() {
-    this.getDatas();
+    //Método para calcular o frete mais rápido
+    fastResult(){
+      let listFilterr = [];
+      listFilterr = this.filterResult(this.datas, this.destiny);
+      let resultFast = listFilterr[0];
+
+      for (let index = 0; index < listFilterr.length; index++) {
+        //console.log(listFilterr[index].lead_time);
+        if ( Number(resultFast.lead_time) > Number(listFilterr[index].lead_time) ) {
+            resultFast = listFilterr[index];          
+        }
+      }
+      this.fastResultt = resultFast;
+    }
   },
 };
 </script>

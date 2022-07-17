@@ -49,23 +49,8 @@ export default {
         }
         this.$emit('formSubmit', {data});
 
-        //apagar os dados dos inputs 
-        /*
-        *
-        *
-        * *
-        * *
-        * *
-        * *
-        * *
-        * *
-        * *
-        * 
-        * *
-        * *
-        * *
-        * *
-        *  */
+        this.destiny = "";
+        this.weight = "";
     }
   }
 };
