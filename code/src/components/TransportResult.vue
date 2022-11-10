@@ -13,7 +13,8 @@
     <div class="result" id="resultFast">
       <p v-show="resultCheap.name"> <img src="../assets/cronometro.png" alt="cronometro" height="43" width="43"> Frete mais rápido:
         <strong>
-          Transportador {{ fName }} - R$ {{ fCost }} - {{ fTime }}h</strong>
+          Transportador {{ fName }} - R$ {{ fCost }} - {{ fTime }}h
+        </strong>
       </p>
     </div>
   </div>

@@ -43,8 +43,12 @@ export default {
     const weight = null;
     const destiny = null;
     const datas = [];
-    const cheapResultt = null;
-    const fastResultt = null;
+    const cheapResultt = {
+      name: "",
+    };
+    const fastResultt = {
+      name: "",
+    };
 
     return {
       appName,
