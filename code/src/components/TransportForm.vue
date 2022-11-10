@@ -29,15 +29,13 @@ export default {
   emits: ['formSubmit'],
   data(){
     return {
-        weight: null,
-        destiny: null,
+        weight: "",
+        destiny: "",
         destinations: [],
 
     }
   },
   mounted(){
-  //  this.destinations = this.shippingData;
-   // console.log(this.shippingData);
   },
   methods:{
     async getInputs(e){

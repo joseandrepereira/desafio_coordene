@@ -137,7 +137,6 @@ export default {
       let resultFast = listFilterr[0];
 
       for (let index = 0; index < listFilterr.length; index++) {
-        //console.log(listFilterr[index].lead_time);
         if ( Number(resultFast.lead_time) > Number(listFilterr[index].lead_time) ) {
             resultFast = listFilterr[index];          
         }

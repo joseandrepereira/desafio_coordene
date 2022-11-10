@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-show="fName">
     <p id="title">
       <strong
         >Estas são as melhores alternativas de frete que encontramos para
@@ -26,11 +26,11 @@ export default {
   props: ["resultCheap", "resultFast", "weight"],
   data() {
     const fName = "";
-    const fCost = null;
-    const fTime = null;
+    const fCost = "";
+    const fTime = "";
     const cName = "";
-    const cCost = null;
-    const cTime = null;
+    const cCost = "";
+    const cTime = "";
 
     return {
       fName,
