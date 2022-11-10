@@ -14,7 +14,11 @@
         :shippingData="shippingData"
         v-on:formSubmit="formSubmit"
       />
-      <TransportResult :resultCheap="cheapResultt" :resultFast="fastResultt" :weight="weight"/>
+      <TransportResult
+        :resultCheap="cheapResultt" 
+        :resultFast="fastResultt" 
+        :weight="weight"
+      />
     </div>
   </div>
 </template>
